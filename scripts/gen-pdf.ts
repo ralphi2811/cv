@@ -52,6 +52,7 @@ async function startServer(): Promise<() => void> {
 
 async function generatePDF() {
   let stopServer: (() => void) | null = null;
+  let browser = null;
 
   try {
     // Ensure output directory exists
@@ -65,7 +66,7 @@ async function generatePDF() {
     await new Promise((resolve) => setTimeout(resolve, SERVER_STABILIZATION_DELAY));
 
     console.log('Launching browser...');
-    const browser = await chromium.launch();
+    browser = await chromium.launch();
     const page = await browser.newPage();
 
     console.log(`Navigating to http://localhost:${PORT}/cv/`);
@@ -89,13 +90,28 @@ async function generatePDF() {
     console.log(`PDF generated successfully: ${OUTPUT_FILE}`);
 
     await browser.close();
+    browser = null;
   } catch (error) {
     console.error('Error generating PDF:', error);
-    process.exit(1);
-  } finally {
+    if (browser) {
+      await browser.close().catch(() => {});
+    }
     if (stopServer) {
       stopServer();
     }
+    process.exit(1);
+  } finally {
+    console.log('Stopping server...');
+    if (stopServer) {
+      stopServer();
+    }
+    // Close browser if still open
+    if (browser) {
+      await browser.close().catch(() => {});
+    }
+    // Force exit to prevent the process from hanging
+    // waiting for open connections or other resources
+    process.exit(0);
   }
 }
 
