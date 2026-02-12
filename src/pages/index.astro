@@ -1,0 +1,174 @@
+---
+import Layout from '../layouts/Layout.astro';
+import type { Resume } from '../types/resume';
+import resumeData from '../content/resume.json';
+
+const resume = resumeData as Resume;
+
+function formatDate(dateStr: string): string {
+  if (!dateStr) return 'Present';
+  const date = new Date(dateStr);
+  return date.toLocaleDateString('fr-FR', { year: 'numeric', month: 'short' });
+}
+---
+
+<Layout title={`CV - ${resume.basics.name}`}>
+  <main class="min-h-screen bg-gray-50 p-4 md:p-8">
+    <div class="max-w-4xl mx-auto bg-white shadow-lg rounded-lg p-8">
+      <!-- Header -->
+      <header class="mb-8 no-break">
+        <h1 class="text-4xl font-bold text-gray-900 mb-2">{resume.basics.name}</h1>
+        <p class="text-xl text-gray-600 mb-4">{resume.basics.label}</p>
+        
+        <div class="flex flex-wrap gap-4 text-sm text-gray-600 mb-4">
+          <div class="flex items-center gap-2">
+            <span>📧</span>
+            <a href={`mailto:${resume.basics.email}`} class="hover:text-blue-600">{resume.basics.email}</a>
+          </div>
+          <div class="flex items-center gap-2">
+            <span>📱</span>
+            <span>{resume.basics.phone}</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <span>📍</span>
+            <span>{resume.basics.location.city}, {resume.basics.location.region}</span>
+          </div>
+        </div>
+
+        <div class="flex flex-wrap gap-3 mb-4">
+          {resume.basics.profiles.map((profile) => (
+            <a 
+              href={profile.url} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-1 px-3 py-1 bg-gray-100 hover:bg-gray-200 rounded-md text-sm"
+            >
+              <span>{profile.network}</span>
+              <span>→</span>
+            </a>
+          ))}
+        </div>
+
+        <p class="text-gray-700 leading-relaxed">{resume.basics.summary}</p>
+      </header>
+
+      <!-- Work Experience -->
+      {resume.work.length > 0 && (
+        <section class="mb-8">
+          <h2 class="text-2xl font-bold text-gray-900 mb-4 border-b-2 border-gray-200 pb-2">
+            Work Experience
+          </h2>
+          <div class="space-y-6">
+            {resume.work.map((job) => (
+              <div class="work-item">
+                <div class="flex justify-between items-start mb-2">
+                  <div>
+                    <h3 class="text-xl font-semibold text-gray-900">{job.position}</h3>
+                    <p class="text-lg text-gray-700">{job.name}</p>
+                  </div>
+                  <span class="text-sm text-gray-500 whitespace-nowrap">
+                    {formatDate(job.startDate)} - {formatDate(job.endDate)}
+                  </span>
+                </div>
+                <p class="text-gray-700 mb-2">{job.summary}</p>
+                {job.highlights.length > 0 && (
+                  <ul class="list-disc list-inside space-y-1 text-gray-600">
+                    {job.highlights.map((highlight) => (
+                      <li>{highlight}</li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
+      <!-- Education -->
+      {resume.education.length > 0 && (
+        <section class="mb-8">
+          <h2 class="text-2xl font-bold text-gray-900 mb-4 border-b-2 border-gray-200 pb-2">
+            Education
+          </h2>
+          <div class="space-y-4">
+            {resume.education.map((edu) => (
+              <div class="education-item">
+                <div class="flex justify-between items-start mb-2">
+                  <div>
+                    <h3 class="text-xl font-semibold text-gray-900">{edu.studyType} in {edu.area}</h3>
+                    <p class="text-lg text-gray-700">{edu.institution}</p>
+                  </div>
+                  <span class="text-sm text-gray-500 whitespace-nowrap">
+                    {formatDate(edu.startDate)} - {formatDate(edu.endDate)}
+                  </span>
+                </div>
+                {edu.score && (
+                  <p class="text-gray-600">Grade: {edu.score}</p>
+                )}
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
+      <!-- Skills -->
+      {resume.skills.length > 0 && (
+        <section class="mb-8">
+          <h2 class="text-2xl font-bold text-gray-900 mb-4 border-b-2 border-gray-200 pb-2">
+            Skills
+          </h2>
+          <div class="space-y-4">
+            {resume.skills.map((skill) => (
+              <div class="skill-item">
+                <h3 class="text-lg font-semibold text-gray-900 mb-2">
+                  {skill.name} <span class="text-sm text-gray-500 font-normal">({skill.level})</span>
+                </h3>
+                <div class="flex flex-wrap gap-2">
+                  {skill.keywords.map((keyword) => (
+                    <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">
+                      {keyword}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
+      <!-- Languages -->
+      {resume.languages.length > 0 && (
+        <section class="mb-8">
+          <h2 class="text-2xl font-bold text-gray-900 mb-4 border-b-2 border-gray-200 pb-2">
+            Languages
+          </h2>
+          <div class="flex flex-wrap gap-4">
+            {resume.languages.map((lang) => (
+              <div class="no-break">
+                <span class="font-semibold text-gray-900">{lang.language}:</span>
+                <span class="text-gray-600"> {lang.fluency}</span>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
+      <!-- Interests -->
+      {resume.interests.length > 0 && (
+        <section class="mb-8">
+          <h2 class="text-2xl font-bold text-gray-900 mb-4 border-b-2 border-gray-200 pb-2">
+            Interests
+          </h2>
+          <div class="space-y-2">
+            {resume.interests.map((interest) => (
+              <div class="no-break">
+                <h3 class="font-semibold text-gray-900 inline">{interest.name}:</h3>
+                <span class="text-gray-600"> {interest.keywords.join(', ')}</span>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+    </div>
+  </main>
+</Layout>

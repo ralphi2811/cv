@@ -1,0 +1,79 @@
+---
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="CV de Raphaël Auberlet" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/cv/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <style is:global>
+      /* Print styles - strict no-break inside elements */
+      @media print {
+        @page {
+          size: A4;
+          margin: 1cm;
+        }
+
+        * {
+          -webkit-print-color-adjust: exact;
+          print-color-adjust: exact;
+        }
+
+        body {
+          margin: 0;
+          padding: 0;
+        }
+
+        /* Prevent page breaks inside these elements */
+        section,
+        .work-item,
+        .education-item,
+        .skill-item,
+        .no-break {
+          page-break-inside: avoid;
+          break-inside: avoid;
+        }
+
+        /* Control page breaks */
+        h1, h2, h3, h4, h5, h6 {
+          page-break-after: avoid;
+          break-after: avoid;
+        }
+
+        ul, ol {
+          page-break-inside: avoid;
+          break-inside: avoid;
+        }
+
+        li {
+          page-break-inside: avoid;
+          break-inside: avoid;
+        }
+
+        /* Hide non-essential elements for print */
+        .no-print {
+          display: none !important;
+        }
+
+        /* Remove shadows and adjust colors for print */
+        .shadow,
+        .shadow-lg,
+        .shadow-md {
+          box-shadow: none !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
