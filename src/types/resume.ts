@@ -5,6 +5,7 @@ export interface Resume {
   skills: Skill[];
   languages: Language[];
   interests: Interest[];
+  projects?: Project[];
 }
 
 export interface Basics {
@@ -65,4 +66,15 @@ export interface Language {
 export interface Interest {
   name: string;
   keywords: string[];
+}
+
+export interface Project {
+  name: string;
+  description: string;
+  highlights: string[];
+  keywords: string[];
+  startDate: string;
+  endDate: string;
+  url?: string;
+  roles?: string[];
 }

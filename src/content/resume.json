@@ -118,5 +118,49 @@
         "Infrastructure Cloud souveraine"
       ]
     }
+  ],
+  "projects": [
+    {
+      "name": "nashi.cloud",
+      "description": "Infrastructure Cloud Souveraine",
+      "highlights": [
+        "Objectif : Création d'une alternative Cloud sécurisée et performante basée sur une stack 100% maîtrisée",
+        "Réalisation technique : Déploiement d'une architecture résiliente sous Linux/KVM, orchestrée via des outils d'automatisation développés sur mesure en Rust",
+        "Valeur ajoutée : Maîtrise totale de la chaîne de confiance (Security by Design) et optimisation extrême des ressources hardware pour un coût OpEx minimal"
+      ],
+      "keywords": [
+        "Cloud Souverain",
+        "Linux/KVM",
+        "Rust",
+        "Security by Design",
+        "Architecture Résiliente"
+      ],
+      "startDate": "2025-01-01",
+      "endDate": "",
+      "roles": [
+        "Architecte",
+        "Fondateur"
+      ]
+    },
+    {
+      "name": "Contribution & Veille Technologique",
+      "description": "Expertise Open Source et développement d'outils système",
+      "highlights": [
+        "Stack Logicielle : Expertise avancée sur l'écosystème Cloud Native (CNCF), la conteneurisation (Podman/Kubernetes) et la sécurité des environnements Linux",
+        "Audit & Performance : Développement d'utilitaires système en Rust pour le monitoring de performance et l'analyse de flux réseau en temps réel"
+      ],
+      "keywords": [
+        "CNCF",
+        "Cloud Native",
+        "Podman",
+        "Kubernetes",
+        "Rust",
+        "Monitoring",
+        "Performance",
+        "Sécurité Linux"
+      ],
+      "startDate": "",
+      "endDate": ""
+    }
   ]
 }

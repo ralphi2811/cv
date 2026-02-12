@@ -181,6 +181,55 @@ function formatDate(dateStr: string): string {
           </div>
         </section>
       )}
+
+      <!-- Projects -->
+      {resume.projects && resume.projects.length > 0 && (
+        <section class="mb-8">
+          <h2 class="text-2xl font-bold text-gray-900 mb-4 border-b-2 border-gray-200 pb-2">
+            🚀 Projets Phares & Expertise Open Source
+          </h2>
+          <div class="space-y-6">
+            {resume.projects.map((project) => (
+              <div class="project-item">
+                <div class="flex justify-between items-start mb-2">
+                  <div>
+                    <h3 class="text-xl font-semibold text-gray-900">
+                      {project.name}
+                      {project.roles && project.roles.length > 0 && (
+                        <span class="text-base text-gray-600 font-normal"> | {project.roles.join(' & ')}</span>
+                      )}
+                    </h3>
+                    <p class="text-lg text-gray-700 italic">{project.description}</p>
+                  </div>
+                  {project.startDate && (
+                    <span class="text-sm text-gray-500 whitespace-nowrap">
+                      {formatDate(project.startDate)} - {formatDate(project.endDate)}
+                    </span>
+                  )}
+                </div>
+                {project.highlights.length > 0 && (
+                  <ul class="list-none space-y-2 text-gray-700 mb-3">
+                    {project.highlights.map((highlight) => (
+                      <li class="pl-4 border-l-2 border-blue-300">
+                        {highlight}
+                      </li>
+                    ))}
+                  </ul>
+                )}
+                {project.keywords.length > 0 && (
+                  <div class="flex flex-wrap gap-2 mt-2">
+                    {project.keywords.map((keyword) => (
+                      <span class="px-2 py-1 bg-green-100 text-green-800 rounded text-xs">
+                        {keyword}
+                      </span>
+                    ))}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
     </div>
   </main>
 </Layout>
