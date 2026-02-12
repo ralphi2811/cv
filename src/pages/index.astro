@@ -1,9 +1,11 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import type { Resume } from '../types/resume';
-import resumeData from '../content/resume.json';
+import resumeDataFr from '../content/resume-fr.json';
+import resumeDataEn from '../content/resume-en.json';
 
-const resume = resumeData as Resume;
+// Use French as default for SSR
+const resume = resumeDataFr as Resume;
 
 function formatDate(dateStr: string): string {
   if (!dateStr) return 'Present';
@@ -13,24 +15,47 @@ function formatDate(dateStr: string): string {
 ---
 
 <Layout title={`CV - ${resume.basics.name}`}>
+  <!-- Embed both resume data for client-side switching -->
+  <script is:inline define:vars={{ resumeDataFr, resumeDataEn }}>
+    window.resumeData = {
+      fr: resumeDataFr,
+      en: resumeDataEn
+    };
+  </script>
   <main class="min-h-screen bg-gray-50 p-4 md:p-8">
-    <div class="max-w-4xl mx-auto bg-white shadow-lg rounded-lg p-8">
-      <!-- PDF Download Button -->
-      <div class="mb-4 no-print text-right">
+    <div class="max-w-4xl mx-auto bg-white shadow-lg rounded-lg p-8" id="cv-content">
+      <!-- Language Selector & PDF Download Button -->
+      <div class="mb-4 no-print flex justify-between items-center">
+        <div class="flex gap-2">
+          <button 
+            id="lang-fr" 
+            class="lang-btn px-3 py-2 rounded-md font-medium transition-colors bg-blue-600 text-white"
+            data-lang="fr"
+          >
+            🇫🇷 FR
+          </button>
+          <button 
+            id="lang-en" 
+            class="lang-btn px-3 py-2 rounded-md font-medium transition-colors bg-gray-200 text-gray-700 hover:bg-gray-300"
+            data-lang="en"
+          >
+            🇬🇧 EN
+          </button>
+        </div>
         <a 
           href="/cv/cv.pdf" 
           download
           class="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors"
         >
           <span>📄</span>
-          <span>Download PDF</span>
+          <span data-i18n="downloadPdf">Télécharger PDF</span>
         </a>
       </div>
 
       <!-- Header -->
-      <header class="mb-8 no-break">
+      <header class="mb-8 no-break" id="cv-header">
         <h1 class="text-4xl font-bold text-gray-900 mb-2">{resume.basics.name}</h1>
-        <p class="text-xl text-gray-600 mb-4">{resume.basics.label}</p>
+        <p class="text-xl text-gray-600 mb-4" id="basics-label">{resume.basics.label}</p>
         
         <div class="flex flex-wrap gap-4 text-sm text-gray-600 mb-4">
           <div class="flex items-center gap-2">
@@ -61,14 +86,14 @@ function formatDate(dateStr: string): string {
           ))}
         </div>
 
-        <p class="text-gray-700 leading-relaxed">{resume.basics.summary}</p>
+        <p class="text-gray-700 leading-relaxed" id="basics-summary">{resume.basics.summary}</p>
       </header>
 
       <!-- Work Experience -->
       {resume.work.length > 0 && (
-        <section class="mb-8">
-          <h2 class="text-2xl font-bold text-gray-900 mb-4 border-b-2 border-gray-200 pb-2">
-            Work Experience
+        <section class="mb-8" id="work-section">
+          <h2 class="text-2xl font-bold text-gray-900 mb-4 border-b-2 border-gray-200 pb-2" data-i18n="workExperience">
+            Expérience Professionnelle
           </h2>
           <div class="space-y-6">
             {resume.work.map((job) => (
@@ -99,8 +124,8 @@ function formatDate(dateStr: string): string {
       <!-- Education -->
       {resume.education.length > 0 && (
         <section class="mb-8">
-          <h2 class="text-2xl font-bold text-gray-900 mb-4 border-b-2 border-gray-200 pb-2">
-            Education
+          <h2 class="text-2xl font-bold text-gray-900 mb-4 border-b-2 border-gray-200 pb-2" data-i18n="education">
+            Formation
           </h2>
           <div class="space-y-4">
             {resume.education.map((edu) => (
@@ -126,8 +151,8 @@ function formatDate(dateStr: string): string {
       <!-- Skills -->
       {resume.skills.length > 0 && (
         <section class="mb-8">
-          <h2 class="text-2xl font-bold text-gray-900 mb-4 border-b-2 border-gray-200 pb-2">
-            Skills
+          <h2 class="text-2xl font-bold text-gray-900 mb-4 border-b-2 border-gray-200 pb-2" data-i18n="skills">
+            Compétences
           </h2>
           <div class="space-y-4">
             {resume.skills.map((skill) => (
@@ -151,8 +176,8 @@ function formatDate(dateStr: string): string {
       <!-- Languages -->
       {resume.languages.length > 0 && (
         <section class="mb-8">
-          <h2 class="text-2xl font-bold text-gray-900 mb-4 border-b-2 border-gray-200 pb-2">
-            Languages
+          <h2 class="text-2xl font-bold text-gray-900 mb-4 border-b-2 border-gray-200 pb-2" data-i18n="languages">
+            Langues
           </h2>
           <div class="flex flex-wrap gap-4">
             {resume.languages.map((lang) => (
@@ -168,8 +193,8 @@ function formatDate(dateStr: string): string {
       <!-- Interests -->
       {resume.interests.length > 0 && (
         <section class="mb-8">
-          <h2 class="text-2xl font-bold text-gray-900 mb-4 border-b-2 border-gray-200 pb-2">
-            Interests
+          <h2 class="text-2xl font-bold text-gray-900 mb-4 border-b-2 border-gray-200 pb-2" data-i18n="interests">
+            Centres d'Intérêt
           </h2>
           <div class="space-y-2">
             {resume.interests.map((interest) => (
@@ -181,6 +206,263 @@ function formatDate(dateStr: string): string {
           </div>
         </section>
       )}
+
+      <!-- Projects -->
+      {resume.projects && resume.projects.length > 0 && (
+        <section class="mb-8">
+          <h2 class="text-2xl font-bold text-gray-900 mb-4 border-b-2 border-gray-200 pb-2" data-i18n="projects">
+            🚀 Projets Phares & Expertise Open Source
+          </h2>
+          <div class="space-y-6">
+            {resume.projects.map((project) => (
+              <div class="project-item">
+                <div class="flex justify-between items-start mb-2">
+                  <div>
+                    <h3 class="text-xl font-semibold text-gray-900">
+                      {project.name}
+                      {project.roles && project.roles.length > 0 && (
+                        <span class="text-base text-gray-600 font-normal"> | {project.roles.join(' & ')}</span>
+                      )}
+                    </h3>
+                    <p class="text-lg text-gray-700 italic">{project.description}</p>
+                  </div>
+                  {project.startDate && (
+                    <span class="text-sm text-gray-500 whitespace-nowrap">
+                      {formatDate(project.startDate)} - {project.endDate ? formatDate(project.endDate) : 'Present'}
+                    </span>
+                  )}
+                </div>
+                {project.highlights.length > 0 && (
+                  <ul class="list-none space-y-2 text-gray-700 mb-3">
+                    {project.highlights.map((highlight) => (
+                      <li class="pl-4 border-l-2 border-blue-300">
+                        {highlight}
+                      </li>
+                    ))}
+                  </ul>
+                )}
+                {project.keywords.length > 0 && (
+                  <div class="flex flex-wrap gap-2 mt-2">
+                    {project.keywords.map((keyword) => (
+                      <span class="px-2 py-1 bg-green-100 text-green-800 rounded text-xs">
+                        {keyword}
+                      </span>
+                    ))}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
     </div>
   </main>
+
+  <script>
+    // Declare window.resumeData type
+    declare global {
+      interface Window {
+        resumeData: {
+          fr: any;
+          en: any;
+        };
+      }
+    }
+
+    // Translations
+    const translations: Record<string, Record<string, string>> = {
+      fr: {
+        downloadPdf: 'Télécharger PDF',
+        workExperience: 'Expérience Professionnelle',
+        education: 'Formation',
+        skills: 'Compétences',
+        languages: 'Langues',
+        interests: "Centres d'Intérêt",
+        projects: '🚀 Projets Phares & Expertise Open Source'
+      },
+      en: {
+        downloadPdf: 'Download PDF',
+        workExperience: 'Work Experience',
+        education: 'Education',
+        skills: 'Skills',
+        languages: 'Languages',
+        interests: 'Interests',
+        projects: '🚀 Flagship Projects & Open Source Expertise'
+      }
+    };
+
+    // Get current language from localStorage or default to 'fr'
+    let currentLang: string = 'fr';
+
+    // Function to update all translatable elements
+    function updateLanguage(lang: string) {
+      currentLang = lang;
+      if (typeof localStorage !== 'undefined') {
+        localStorage.setItem('cv-lang', lang);
+      }
+
+      // Get resume data for the selected language
+      const resume = window.resumeData[lang as 'fr' | 'en'];
+      if (!resume) return;
+
+      // Update basics
+      const basicsLabel = document.getElementById('basics-label');
+      if (basicsLabel) basicsLabel.textContent = resume.basics.label;
+      
+      const basicsSummary = document.getElementById('basics-summary');
+      if (basicsSummary) basicsSummary.textContent = resume.basics.summary;
+
+      // Update work section
+      const workSection = document.getElementById('work-section');
+      if (workSection && resume.work) {
+        interface WorkType { name: string; position: string; startDate: string; endDate: string; summary: string; highlights?: string[]; }
+        const workContent = (resume.work as WorkType[]).map((job: WorkType) => `
+          <div class="work-item">
+            <div class="flex justify-between items-start mb-2">
+              <div>
+                <h3 class="text-xl font-semibold text-gray-900">${escapeHtml(job.position)}</h3>
+                <p class="text-lg text-gray-700">${escapeHtml(job.name)}</p>
+              </div>
+              <span class="text-sm text-gray-500 whitespace-nowrap">
+                ${formatDate(job.startDate, lang)} - ${formatDate(job.endDate, lang)}
+              </span>
+            </div>
+            <p class="text-gray-700 mb-2">${escapeHtml(job.summary)}</p>
+            ${job.highlights && job.highlights.length > 0 ? `
+              <ul class="list-disc list-inside space-y-1 text-gray-600">
+                ${job.highlights.map((h: string) => `<li>${escapeHtml(h)}</li>`).join('')}
+              </ul>
+            ` : ''}
+          </div>
+        `).join('');
+        
+        const workDiv = workSection.querySelector('.space-y-6');
+        if (workDiv) workDiv.innerHTML = workContent;
+      }
+
+      // Update skills section
+      const skillsSection = document.querySelector('#cv-content section:has(h2[data-i18n="skills"])');
+      if (skillsSection && resume.skills) {
+        interface SkillType { name: string; level: string; keywords: string[]; }
+        const skillsContent = (resume.skills as SkillType[]).map((skill: SkillType) => `
+          <div class="skill-item">
+            <h3 class="text-lg font-semibold text-gray-900 mb-2">
+              ${escapeHtml(skill.name)} <span class="text-sm text-gray-500 font-normal">(${escapeHtml(skill.level)})</span>
+            </h3>
+            <div class="flex flex-wrap gap-2">
+              ${skill.keywords.map((k: string) => `
+                <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">${escapeHtml(k)}</span>
+              `).join('')}
+            </div>
+          </div>
+        `).join('');
+        
+        const skillsDiv = skillsSection.querySelector('.space-y-4');
+        if (skillsDiv) skillsDiv.innerHTML = skillsContent;
+      }
+
+      // Update projects section
+      if (resume.projects) {
+        const projectsSection = document.querySelector('section:has(h2[data-i18n="projects"])');
+        if (projectsSection) {
+          interface ProjectType { name: string; description: string; highlights?: string[]; keywords?: string[]; startDate?: string; endDate?: string; roles?: string[]; }
+          const projectsContent = (resume.projects as ProjectType[]).map((project: ProjectType) => `
+            <div class="project-item">
+              <div class="flex justify-between items-start mb-2">
+                <div>
+                  <h3 class="text-xl font-semibold text-gray-900">
+                    ${escapeHtml(project.name)}
+                    ${project.roles && project.roles.length > 0 ? `
+                      <span class="text-base text-gray-600 font-normal"> | ${project.roles.map((r: string) => escapeHtml(r)).join(' & ')}</span>
+                    ` : ''}
+                  </h3>
+                  <p class="text-lg text-gray-700 italic">${escapeHtml(project.description)}</p>
+                </div>
+                ${project.startDate ? `
+                  <span class="text-sm text-gray-500 whitespace-nowrap">
+                    ${formatDate(project.startDate, lang)} - ${project.endDate ? formatDate(project.endDate, lang) : (lang === 'fr' ? 'Présent' : 'Present')}
+                  </span>
+                ` : ''}
+              </div>
+              ${project.highlights && project.highlights.length > 0 ? `
+                <ul class="list-none space-y-2 text-gray-700 mb-3">
+                  ${project.highlights.map((h: string) => `
+                    <li class="pl-4 border-l-2 border-blue-300">${escapeHtml(h)}</li>
+                  `).join('')}
+                </ul>
+              ` : ''}
+              ${project.keywords && project.keywords.length > 0 ? `
+                <div class="flex flex-wrap gap-2 mt-2">
+                  ${project.keywords.map((k: string) => `
+                    <span class="px-2 py-1 bg-green-100 text-green-800 rounded text-xs">${escapeHtml(k)}</span>
+                  `).join('')}
+                </div>
+              ` : ''}
+            </div>
+          `).join('');
+          
+          const projectsDiv = projectsSection.querySelector('.space-y-6');
+          if (projectsDiv) projectsDiv.innerHTML = projectsContent;
+        }
+      }
+
+      // Update all elements with data-i18n attribute (for headers)
+      document.querySelectorAll('[data-i18n]').forEach((element) => {
+        const key = element.getAttribute('data-i18n');
+        if (key && translations[lang] && translations[lang][key]) {
+          element.textContent = translations[lang][key];
+        }
+      });
+
+      // Update button states
+      document.querySelectorAll('.lang-btn').forEach((btn) => {
+        const btnLang = btn.getAttribute('data-lang');
+        if (btnLang === lang) {
+          btn.classList.remove('bg-gray-200', 'text-gray-700', 'hover:bg-gray-300');
+          btn.classList.add('bg-blue-600', 'text-white');
+        } else {
+          btn.classList.remove('bg-blue-600', 'text-white');
+          btn.classList.add('bg-gray-200', 'text-gray-700', 'hover:bg-gray-300');
+        }
+      });
+    }
+
+    // Helper function to format dates
+    function formatDate(dateStr: string, lang: string): string {
+      if (!dateStr) return lang === 'fr' ? 'Présent' : 'Present';
+      const date = new Date(dateStr);
+      const locale = lang === 'fr' ? 'fr-FR' : 'en-US';
+      return date.toLocaleDateString(locale, { year: 'numeric', month: 'short' });
+    }
+
+    // Helper function to escape HTML
+    function escapeHtml(text: string): string {
+      const div = document.createElement('div');
+      div.textContent = text;
+      return div.innerHTML;
+    }
+
+    // Initialize language on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      // Get language from localStorage if available
+      if (typeof localStorage !== 'undefined') {
+        const savedLang = localStorage.getItem('cv-lang');
+        if (savedLang) {
+          currentLang = savedLang;
+        }
+      }
+      
+      updateLanguage(currentLang);
+
+      // Add click handlers to language buttons
+      document.querySelectorAll('.lang-btn').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const lang = btn.getAttribute('data-lang');
+          if (lang) {
+            updateLanguage(lang);
+          }
+        });
+      });
+    });
+  </script>
 </Layout>
