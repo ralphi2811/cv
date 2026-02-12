@@ -3,19 +3,24 @@
     "name": "Raphaël Auberlet",
     "label": "CIO / Chief Information Officer | Cloud Strategy & Cybersecurity",
     "email": "raphael@nashi.cloud",
-    "phone": "",
+    "phone": "+262 6 93 39 58 98",
     "url": "https://raphaeldev.fr",
-    "summary": "IT expert with 18 years of experience, combining strategic CIO vision (governance, budgets, ERP) with cutting-edge technical expertise in Cloud Architecture & DevOps. Specialist in OpenSource stack and critical infrastructure, I transform IT systems into secure and scalable growth drivers. Preferred stack: Linux, Rust, Python, Kubernetes, Podman.",
+    "summary": "IT expert with 18 years of experience, combining **CIO** strategic vision (governance, budgets, ERP) with cutting-edge technical expertise in **Cloud Architecture & DevOps**. Specialist in **OpenSource** stack and critical infrastructure, I transform IT systems into secure, sovereign and highly performant growth drivers.",
     "location": {
       "city": "Le Tampon",
       "countryCode": "FR",
-      "region": "La Réunion"
+      "region": "La Réunion (Mobility: Europe / International)"
     },
     "profiles": [
       {
         "network": "Website",
         "username": "raphaeldev",
         "url": "https://raphaeldev.fr"
+      },
+      {
+        "network": "Website",
+        "username": "nashi.cloud",
+        "url": "https://nashi.cloud"
       }
     ]
   },
@@ -28,9 +33,9 @@
       "endDate": "",
       "summary": "Strategic consulting and cloud engineering",
       "highlights": [
-        "nashi.cloud Project: Design and launch of a sovereign Cloud infrastructure based on a 100% OpenSource stack",
-        "Strategic Consulting: Supporting executive management in infrastructure modernization and AI integration",
-        "Engineering: Development of high-performance system automation tools in Rust"
+        "Strategic Expertise: Supporting executive management in infrastructure modernization and AI solution integration",
+        "Cutting-edge Engineering: Development of high-performance system automation tools in Rust",
+        "Research & Development: Active monitoring of digital sovereignty and Cloud Native architectures"
       ]
     },
     {
@@ -39,11 +44,11 @@
       "url": "",
       "startDate": "2023-08-01",
       "endDate": "2025-11-30",
-      "summary": "IT department management and overall IT budget management for the group",
+      "summary": "IT department management and technology investment arbitration",
       "highlights": [
-        "Strategic Leadership: IT department management and overall IT budget management for the group",
-        "ERP Project Management: Project ownership (PMO) for complete migration to Odoo (process analysis, scoping, and deployment)",
-        "Resilience: Infrastructure security and service continuity guarantee (99.9% SLA)"
+        "IT Management: IT department management and technology investment arbitration",
+        "ERP Project Management: Project ownership (PMO) for complete migration to Odoo (analysis, process redesign and deployment)",
+        "Operations: Ensuring security and service continuity for all group subsidiaries"
       ]
     },
     {
@@ -53,10 +58,34 @@
       "startDate": "2020-05-01",
       "endDate": "2023-08-31",
       "summary": "Architecture and solution development",
-      "highlights": []
+      "highlights": [
+        "Core Business Architecture: Design of Point-of-Sale (POS) system and centralized loyalty engine",
+        "Omnichannel: Real-time interconnection of inventory and e-commerce flows (Magasin Vert, Terranimo)",
+        "Logistics Optimization: Development of business mobile applications for warehouse management"
+      ]
+    },
+    {
+      "name": "Independent",
+      "position": "IT Expert & Fullstack Consultant",
+      "url": "",
+      "startDate": "2007-01-01",
+      "endDate": "2020-05-01",
+      "summary": "Linux expertise and complex application development",
+      "highlights": [
+        "Linux Expertise: Critical server administration and deployment of high-availability web architectures",
+        "Business Solutions: Design of complex custom applications for an international clientele"
+      ]
     }
   ],
-  "education": [],
+  "education": [
+    {
+      "institution": "Computer Science & Information Systems Expertise",
+      "area": "Computer Science & Information Systems",
+      "studyType": "Higher education",
+      "startDate": "2007-01-01",
+      "endDate": "2020-01-01"
+    }
+  ],
   "skills": [
     {
       "name": "Governance & Management",
@@ -72,9 +101,9 @@
         "ERP Migration (Odoo)",
         "Change Management",
         "Agile Methodologies",
-        "Compliance",
+        "Compliance & Risks",
         "Data Governance (GDPR)",
-        "Systems Security"
+        "System Resilience"
       ]
     },
     {
@@ -85,7 +114,7 @@
         "Linux Expert",
         "Cloud Native",
         "High Availability (HA)",
-        "Virtualization",
+        "KVM Virtualization",
         "DevOps & Automation",
         "CI/CD",
         "Terraform",
@@ -93,21 +122,26 @@
         "Podman",
         "Docker",
         "Kubernetes",
-        "Development",
+        "Development & AI",
         "Rust (Performance)",
         "Python (Automation & AI)",
         "REST API",
+        "PostgreSQL",
         "Security",
         "Audit",
         "System Hardening",
-        "BCP/DRP"
+        "BCP/DRP (Business Continuity/Disaster Recovery)"
       ]
     }
   ],
   "languages": [
     {
       "language": "French",
-      "fluency": "Native speaker"
+      "fluency": "Native"
+    },
+    {
+      "language": "English",
+      "fluency": "Technical & Operational"
     }
   ],
   "interests": [
@@ -124,9 +158,9 @@
       "name": "nashi.cloud",
       "description": "Sovereign Cloud Infrastructure",
       "highlights": [
-        "Objective: Creating a secure and high-performance Cloud alternative based on a 100% mastered stack",
-        "Technical Implementation: Deployment of a resilient architecture on Linux/KVM, orchestrated through custom automation tools developed in Rust",
-        "Added Value: Complete control of the trust chain (Security by Design) and extreme optimization of hardware resources for minimal OpEx cost"
+        "Design of a secure Cloud alternative based on a 100% OpenSource stack",
+        "Development of an orchestration layer optimized in Rust to minimize hardware footprint",
+        "Focus on Security by Design and complete control of the trust chain"
       ],
       "keywords": [
         "Sovereign Cloud",
@@ -138,26 +172,8 @@
       "startDate": "2025-01-01",
       "endDate": "",
       "roles": [
-        "Architect",
-        "Founder"
-      ]
-    },
-    {
-      "name": "Contribution & Technology Watch",
-      "description": "Open Source expertise and system tools development",
-      "highlights": [
-        "Software Stack: Advanced expertise in the Cloud Native ecosystem (CNCF), containerization (Podman/Kubernetes), and Linux environment security",
-        "Audit & Performance: Development of system utilities in Rust for performance monitoring and real-time network flow analysis"
-      ],
-      "keywords": [
-        "CNCF",
-        "Cloud Native",
-        "Podman",
-        "Kubernetes",
-        "Rust",
-        "Monitoring",
-        "Performance",
-        "Linux Security"
+        "Founder",
+        "Architect"
       ]
     }
   ]
