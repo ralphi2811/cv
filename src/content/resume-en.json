@@ -13,12 +13,12 @@
     },
     "profiles": [
       {
-        "network": "Website",
+        "network": "Portfolio",
         "username": "raphaeldev",
         "url": "https://raphaeldev.fr"
       },
       {
-        "network": "Website",
+        "network": "nashi.cloud",
         "username": "nashi.cloud",
         "url": "https://nashi.cloud"
       }
@@ -169,7 +169,7 @@
         "Security by Design",
         "Resilient Architecture"
       ],
-      "startDate": "2025-01-01",
+      "startDate": "2026-01-01",
       "endDate": "",
       "roles": [
         "Founder",
