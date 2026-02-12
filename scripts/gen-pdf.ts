@@ -60,8 +60,9 @@ async function generatePDF() {
     // Start the server
     stopServer = await startServer();
 
-    // Wait a bit for server to be fully ready
-    await new Promise((resolve) => setTimeout(resolve, 2000));
+    // Wait for server to be fully ready and stabilized
+    const SERVER_STABILIZATION_DELAY = 2000;
+    await new Promise((resolve) => setTimeout(resolve, SERVER_STABILIZATION_DELAY));
 
     console.log('Launching browser...');
     const browser = await chromium.launch();
