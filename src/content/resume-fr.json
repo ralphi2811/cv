@@ -1,11 +1,11 @@
 {
   "basics": {
     "name": "Raphaël Auberlet",
-    "label": "DSI / Directeur des Systèmes d'Information | Stratégie Cloud & Cybersécurité",
+    "label": "DSI / CTO | Stratégie Cloud & Cybersécurité",
     "email": "raphael@nashi.cloud",
     "phone": "06 93 39 58 98",
-    "url": "https://raphaeldev.fr",
-    "summary": "Expert IT avec 18 ans d'expérience, j'allie une vision stratégique de **DSI** (gouvernance, budgets, ERP) à une expertise technique de pointe en **Architecture Cloud & DevOps**. Spécialiste de la stack **OpenSource** et des infrastructures critiques, je transforme le SI en un levier de croissance sécurisé, souverain et hautement performant.",
+    "url": "https://nashi.cloud",
+    "summary": "Expert IT avec 18 ans d'expérience, j'allie une vision stratégique de **DSI** (gouvernance, budgets, ERP) à une expertise technique de pointe en **Architecture Cloud & DevOps**. Spécialiste de la stack **OpenSource** (Linux, Rust, KVM) et des infrastructures critiques, je transforme le SI en un levier de croissance sécurisé, souverain et hautement performant.",
     "location": {
       "city": "Le Tampon",
       "countryCode": "FR",
@@ -13,9 +13,14 @@
     },
     "profiles": [
       {
-        "network": "Website",
-        "username": "raphaeldev",
-        "url": "https://raphaeldev.fr"
+        "network": "LinkedIn",
+        "username": "raphaelauberlet",
+        "url": "https://www.linkedin.com/in/raphaelauberlet/"
+      },
+      {
+        "network": "GitHub",
+        "username": "ralphi2811",
+        "url": "https://github.com/ralphi2811"
       },
       {
         "network": "Website",
@@ -26,16 +31,17 @@
   },
   "work": [
     {
-      "name": "Freelance",
-      "position": "Architecte Cloud & DSI de transition",
+      "name": "nashi.cloud",
+      "position": "Fondateur & Architecte Cloud",
       "url": "",
       "startDate": "2026-01-01",
       "endDate": "",
-      "summary": "Conseil stratégique et ingénierie cloud",
+      "summary": "Création d'une infrastructure Cloud souveraine et sécurisée",
       "highlights": [
-        "Expertise Stratégique : Accompagnement de directions générales sur la modernisation d'infrastructure et l'intégration de solutions IA",
-        "Ingénierie de pointe : Développement d'outils d'automatisation système haute performance en Rust",
-        "Recherche & Développement : Veille active sur la souveraineté numérique et les architectures Cloud Native"
+        "Stratégie & Conception : Création d'une infrastructure Cloud souveraine et sécurisée (Stack 100% OpenSource)",
+        "Ingénierie Rust : Développement d'une couche d'orchestration optimisée pour minimiser l'empreinte hardware",
+        "Sécurité : Application stricte du Security by Design et maîtrise de la chaîne de confiance",
+        "R&D : Veille active sur la souveraineté numérique et les architectures Cloud Native"
       ]
     },
     {
@@ -79,11 +85,11 @@
   ],
   "education": [
     {
-      "institution": "Expertise Informatique & SI",
-      "area": "Informatique & Systèmes d'Information",
-      "studyType": "Cursus supérieur",
+      "institution": "Expertise Technique & SI (Autodidacte & Formation Continue)",
+      "area": "Veille technologique permanente : Linux Kernel, Rust, Architecture Distribuée. Maîtrise complète des écosystèmes OpenSource.",
+      "studyType": "Formation Continue",
       "startDate": "2007-01-01",
-      "endDate": "2020-01-01"
+      "endDate": ""
     }
   ],
   "skills": [
@@ -91,46 +97,20 @@
       "name": "Gouvernance & Management",
       "level": "Expert",
       "keywords": [
-        "Stratégie SI",
-        "Élaboration de schémas directeurs",
-        "Alignement IT-Business",
-        "Gestion Budgétaire",
-        "Optimisation des coûts (OpEx/CapEx)",
-        "Pilotage de prestataires",
-        "Direction de Projets",
-        "Migration ERP (Odoo)",
-        "Gestion du changement",
-        "Méthodologies Agile",
-        "Conformité & Risques",
-        "Gouvernance des données (RGPD)",
-        "Résilience des systèmes"
+        "Stratégie SI & Schémas directeurs",
+        "Alignement IT-Business & Gestion Budgétaire (OpEx/CapEx)",
+        "Direction de Projets & Migration ERP (Odoo)",
+        "Conformité RGPD & Gouvernance des données"
       ]
     },
     {
       "name": "Expertise Technique",
       "level": "Expert",
       "keywords": [
-        "Infrastructure",
-        "Linux Expert",
-        "Cloud Native",
-        "Haute Disponibilité (HA)",
-        "Virtualisation KVM",
-        "DevOps & Automation",
-        "CI/CD",
-        "Terraform",
-        "Ansible",
-        "Podman",
-        "Docker",
-        "Kubernetes",
-        "Développement & IA",
-        "Rust (Performance)",
-        "Python (Automation & IA)",
-        "API REST",
-        "PostgreSQL",
-        "Sécurité",
-        "Audit",
-        "Durcissement système (Hardening)",
-        "PCA/PRA"
+        "Infrastructure : Linux Expert (Kernel tuning), KVM, Podman, Kubernetes",
+        "DevOps & Automation : CI/CD, Terraform, Ansible, Docker",
+        "Développement : Rust (Performance), Python (Automation & IA), API REST",
+        "Sécurité : Hardening système, Audit, PCA/PRA"
       ]
     }
   ],
@@ -141,15 +121,20 @@
     },
     {
       "language": "Anglais",
-      "fluency": "Technique & Opérationnel"
+      "fluency": "C1 - Courant professionnel & Technique"
     }
   ],
   "interests": [
     {
       "name": "OpenSource",
       "keywords": [
-        "Stack 100% OpenSource",
-        "Infrastructure Cloud souveraine"
+        "Contribution et veille active, Stack 100% libre"
+      ]
+    },
+    {
+      "name": "Souveraineté Numérique",
+      "keywords": [
+        "Architecture Cloud locale et résiliente"
       ]
     }
   ],
