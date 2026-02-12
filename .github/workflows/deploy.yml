@@ -39,6 +39,9 @@ jobs:
       - name: Generate PDF
         run: npm run gen-pdf
 
+      - name: Copy PDF to dist
+        run: cp public/cv.pdf dist/cv.pdf
+
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
