@@ -1,9 +1,11 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import type { Resume } from '../types/resume';
-import resumeData from '../content/resume.json';
+import resumeDataFr from '../content/resume-fr.json';
+import resumeDataEn from '../content/resume-en.json';
 
-const resume = resumeData as Resume;
+// Use French as default for SSR
+const resume = resumeDataFr as Resume;
 
 function formatDate(dateStr: string): string {
   if (!dateStr) return 'Present';
@@ -13,8 +15,15 @@ function formatDate(dateStr: string): string {
 ---
 
 <Layout title={`CV - ${resume.basics.name}`}>
+  <!-- Embed both resume data for client-side switching -->
+  <script is:inline define:vars={{ resumeDataFr, resumeDataEn }}>
+    window.resumeData = {
+      fr: resumeDataFr,
+      en: resumeDataEn
+    };
+  </script>
   <main class="min-h-screen bg-gray-50 p-4 md:p-8">
-    <div class="max-w-4xl mx-auto bg-white shadow-lg rounded-lg p-8">
+    <div class="max-w-4xl mx-auto bg-white shadow-lg rounded-lg p-8" id="cv-content">
       <!-- Language Selector & PDF Download Button -->
       <div class="mb-4 no-print flex justify-between items-center">
         <div class="flex gap-2">
@@ -44,9 +53,9 @@ function formatDate(dateStr: string): string {
       </div>
 
       <!-- Header -->
-      <header class="mb-8 no-break">
+      <header class="mb-8 no-break" id="cv-header">
         <h1 class="text-4xl font-bold text-gray-900 mb-2">{resume.basics.name}</h1>
-        <p class="text-xl text-gray-600 mb-4">{resume.basics.label}</p>
+        <p class="text-xl text-gray-600 mb-4" id="basics-label">{resume.basics.label}</p>
         
         <div class="flex flex-wrap gap-4 text-sm text-gray-600 mb-4">
           <div class="flex items-center gap-2">
@@ -77,12 +86,12 @@ function formatDate(dateStr: string): string {
           ))}
         </div>
 
-        <p class="text-gray-700 leading-relaxed">{resume.basics.summary}</p>
+        <p class="text-gray-700 leading-relaxed" id="basics-summary">{resume.basics.summary}</p>
       </header>
 
       <!-- Work Experience -->
       {resume.work.length > 0 && (
-        <section class="mb-8">
+        <section class="mb-8" id="work-section">
           <h2 class="text-2xl font-bold text-gray-900 mb-4 border-b-2 border-gray-200 pb-2" data-i18n="workExperience">
             Expérience Professionnelle
           </h2>
@@ -250,6 +259,16 @@ function formatDate(dateStr: string): string {
   </main>
 
   <script>
+    // Declare window.resumeData type
+    declare global {
+      interface Window {
+        resumeData: {
+          fr: any;
+          en: any;
+        };
+      }
+    }
+
     // Translations
     const translations: Record<string, Record<string, string>> = {
       fr: {
@@ -282,7 +301,109 @@ function formatDate(dateStr: string): string {
         localStorage.setItem('cv-lang', lang);
       }
 
-      // Update all elements with data-i18n attribute
+      // Get resume data for the selected language
+      const resume = window.resumeData[lang as 'fr' | 'en'];
+      if (!resume) return;
+
+      // Update basics
+      const basicsLabel = document.getElementById('basics-label');
+      if (basicsLabel) basicsLabel.textContent = resume.basics.label;
+      
+      const basicsSummary = document.getElementById('basics-summary');
+      if (basicsSummary) basicsSummary.textContent = resume.basics.summary;
+
+      // Update work section
+      const workSection = document.getElementById('work-section');
+      if (workSection && resume.work) {
+        const workContent = resume.work.map((job: any) => `
+          <div class="work-item">
+            <div class="flex justify-between items-start mb-2">
+              <div>
+                <h3 class="text-xl font-semibold text-gray-900">${job.position}</h3>
+                <p class="text-lg text-gray-700">${job.name}</p>
+              </div>
+              <span class="text-sm text-gray-500 whitespace-nowrap">
+                ${formatDate(job.startDate, lang)} - ${formatDate(job.endDate, lang)}
+              </span>
+            </div>
+            <p class="text-gray-700 mb-2">${job.summary}</p>
+            ${job.highlights && job.highlights.length > 0 ? `
+              <ul class="list-disc list-inside space-y-1 text-gray-600">
+                ${job.highlights.map((h: string) => `<li>${h}</li>`).join('')}
+              </ul>
+            ` : ''}
+          </div>
+        `).join('');
+        
+        const workDiv = workSection.querySelector('.space-y-6');
+        if (workDiv) workDiv.innerHTML = workContent;
+      }
+
+      // Update skills section
+      const skillsSection = document.querySelector('#cv-content section:has(h2[data-i18n="skills"])');
+      if (skillsSection && resume.skills) {
+        const skillsContent = resume.skills.map((skill: any) => `
+          <div class="skill-item">
+            <h3 class="text-lg font-semibold text-gray-900 mb-2">
+              ${skill.name} <span class="text-sm text-gray-500 font-normal">(${skill.level})</span>
+            </h3>
+            <div class="flex flex-wrap gap-2">
+              ${skill.keywords.map((k: string) => `
+                <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">${k}</span>
+              `).join('')}
+            </div>
+          </div>
+        `).join('');
+        
+        const skillsDiv = skillsSection.querySelector('.space-y-4');
+        if (skillsDiv) skillsDiv.innerHTML = skillsContent;
+      }
+
+      // Update projects section
+      if (resume.projects) {
+        const projectsSection = document.querySelector('section:has(h2[data-i18n="projects"])');
+        if (projectsSection) {
+          const projectsContent = resume.projects.map((project: any) => `
+            <div class="project-item">
+              <div class="flex justify-between items-start mb-2">
+                <div>
+                  <h3 class="text-xl font-semibold text-gray-900">
+                    ${project.name}
+                    ${project.roles && project.roles.length > 0 ? `
+                      <span class="text-base text-gray-600 font-normal"> | ${project.roles.join(' & ')}</span>
+                    ` : ''}
+                  </h3>
+                  <p class="text-lg text-gray-700 italic">${project.description}</p>
+                </div>
+                ${project.startDate ? `
+                  <span class="text-sm text-gray-500 whitespace-nowrap">
+                    ${formatDate(project.startDate, lang)} - ${project.endDate ? formatDate(project.endDate, lang) : (lang === 'fr' ? 'Présent' : 'Present')}
+                  </span>
+                ` : ''}
+              </div>
+              ${project.highlights && project.highlights.length > 0 ? `
+                <ul class="list-none space-y-2 text-gray-700 mb-3">
+                  ${project.highlights.map((h: string) => `
+                    <li class="pl-4 border-l-2 border-blue-300">${h}</li>
+                  `).join('')}
+                </ul>
+              ` : ''}
+              ${project.keywords && project.keywords.length > 0 ? `
+                <div class="flex flex-wrap gap-2 mt-2">
+                  ${project.keywords.map((k: string) => `
+                    <span class="px-2 py-1 bg-green-100 text-green-800 rounded text-xs">${k}</span>
+                  `).join('')}
+                </div>
+              ` : ''}
+            </div>
+          `).join('');
+          
+          const projectsDiv = projectsSection.querySelector('.space-y-6');
+          if (projectsDiv) projectsDiv.innerHTML = projectsContent;
+        }
+      }
+
+      // Update all elements with data-i18n attribute (for headers)
       document.querySelectorAll('[data-i18n]').forEach((element) => {
         const key = element.getAttribute('data-i18n');
         if (key && translations[lang] && translations[lang][key]) {
@@ -301,6 +422,14 @@ function formatDate(dateStr: string): string {
           btn.classList.add('bg-gray-200', 'text-gray-700', 'hover:bg-gray-300');
         }
       });
+    }
+
+    // Helper function to format dates
+    function formatDate(dateStr: string, lang: string): string {
+      if (!dateStr) return lang === 'fr' ? 'Présent' : 'Present';
+      const date = new Date(dateStr);
+      const locale = lang === 'fr' ? 'fr-FR' : 'en-US';
+      return date.toLocaleDateString(locale, { year: 'numeric', month: 'short' });
     }
 
     // Initialize language on page load

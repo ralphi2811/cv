@@ -1,0 +1,164 @@
+{
+  "basics": {
+    "name": "Raphaël Auberlet",
+    "label": "CIO / Chief Information Officer | Cloud Strategy & Cybersecurity",
+    "email": "raphael@nashi.cloud",
+    "phone": "",
+    "url": "https://raphaeldev.fr",
+    "summary": "IT expert with 18 years of experience, combining strategic CIO vision (governance, budgets, ERP) with cutting-edge technical expertise in Cloud Architecture & DevOps. Specialist in OpenSource stack and critical infrastructure, I transform IT systems into secure and scalable growth drivers. Preferred stack: Linux, Rust, Python, Kubernetes, Podman.",
+    "location": {
+      "city": "Le Tampon",
+      "countryCode": "FR",
+      "region": "La Réunion"
+    },
+    "profiles": [
+      {
+        "network": "Website",
+        "username": "raphaeldev",
+        "url": "https://raphaeldev.fr"
+      }
+    ]
+  },
+  "work": [
+    {
+      "name": "Freelance",
+      "position": "Cloud Architect & Interim CIO",
+      "url": "",
+      "startDate": "2026-01-01",
+      "endDate": "",
+      "summary": "Strategic consulting and cloud engineering",
+      "highlights": [
+        "nashi.cloud Project: Design and launch of a sovereign Cloud infrastructure based on a 100% OpenSource stack",
+        "Strategic Consulting: Supporting executive management in infrastructure modernization and AI integration",
+        "Engineering: Development of high-performance system automation tools in Rust"
+      ]
+    },
+    {
+      "name": "SICALAIT / SDPMA",
+      "position": "Information Systems Manager (ISM)",
+      "url": "",
+      "startDate": "2023-08-01",
+      "endDate": "2025-11-30",
+      "summary": "IT department management and overall IT budget management for the group",
+      "highlights": [
+        "Strategic Leadership: IT department management and overall IT budget management for the group",
+        "ERP Project Management: Project ownership (PMO) for complete migration to Odoo (process analysis, scoping, and deployment)",
+        "Resilience: Infrastructure security and service continuity guarantee (99.9% SLA)"
+      ]
+    },
+    {
+      "name": "SDPMA",
+      "position": "Lead Developer & Solution Architect",
+      "url": "",
+      "startDate": "2020-05-01",
+      "endDate": "2023-08-31",
+      "summary": "Architecture and solution development",
+      "highlights": []
+    }
+  ],
+  "education": [],
+  "skills": [
+    {
+      "name": "Governance & Management",
+      "level": "Expert",
+      "keywords": [
+        "IT Strategy",
+        "Master plan development",
+        "IT-Business Alignment",
+        "Budget Management",
+        "Cost Optimization (OpEx/CapEx)",
+        "Vendor Management",
+        "Project Management",
+        "ERP Migration (Odoo)",
+        "Change Management",
+        "Agile Methodologies",
+        "Compliance",
+        "Data Governance (GDPR)",
+        "Systems Security"
+      ]
+    },
+    {
+      "name": "Technical Expertise",
+      "level": "Expert",
+      "keywords": [
+        "Infrastructure",
+        "Linux Expert",
+        "Cloud Native",
+        "High Availability (HA)",
+        "Virtualization",
+        "DevOps & Automation",
+        "CI/CD",
+        "Terraform",
+        "Ansible",
+        "Podman",
+        "Docker",
+        "Kubernetes",
+        "Development",
+        "Rust (Performance)",
+        "Python (Automation & AI)",
+        "REST API",
+        "Security",
+        "Audit",
+        "System Hardening",
+        "BCP/DRP"
+      ]
+    }
+  ],
+  "languages": [
+    {
+      "language": "French",
+      "fluency": "Native speaker"
+    }
+  ],
+  "interests": [
+    {
+      "name": "OpenSource",
+      "keywords": [
+        "100% OpenSource Stack",
+        "Sovereign Cloud Infrastructure"
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "name": "nashi.cloud",
+      "description": "Sovereign Cloud Infrastructure",
+      "highlights": [
+        "Objective: Creating a secure and high-performance Cloud alternative based on a 100% mastered stack",
+        "Technical Implementation: Deployment of a resilient architecture on Linux/KVM, orchestrated through custom automation tools developed in Rust",
+        "Added Value: Complete control of the trust chain (Security by Design) and extreme optimization of hardware resources for minimal OpEx cost"
+      ],
+      "keywords": [
+        "Sovereign Cloud",
+        "Linux/KVM",
+        "Rust",
+        "Security by Design",
+        "Resilient Architecture"
+      ],
+      "startDate": "2025-01-01",
+      "endDate": "",
+      "roles": [
+        "Architect",
+        "Founder"
+      ]
+    },
+    {
+      "name": "Contribution & Technology Watch",
+      "description": "Open Source expertise and system tools development",
+      "highlights": [
+        "Software Stack: Advanced expertise in the Cloud Native ecosystem (CNCF), containerization (Podman/Kubernetes), and Linux environment security",
+        "Audit & Performance: Development of system utilities in Rust for performance monitoring and real-time network flow analysis"
+      ],
+      "keywords": [
+        "CNCF",
+        "Cloud Native",
+        "Podman",
+        "Kubernetes",
+        "Rust",
+        "Monitoring",
+        "Performance",
+        "Linux Security"
+      ]
+    }
+  ]
+}
