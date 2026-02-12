@@ -273,12 +273,14 @@ function formatDate(dateStr: string): string {
     };
 
     // Get current language from localStorage or default to 'fr'
-    let currentLang: string = localStorage.getItem('cv-lang') || 'fr';
+    let currentLang: string = 'fr';
 
     // Function to update all translatable elements
     function updateLanguage(lang: string) {
       currentLang = lang;
-      localStorage.setItem('cv-lang', lang);
+      if (typeof localStorage !== 'undefined') {
+        localStorage.setItem('cv-lang', lang);
+      }
 
       // Update all elements with data-i18n attribute
       document.querySelectorAll('[data-i18n]').forEach((element) => {
@@ -303,6 +305,14 @@ function formatDate(dateStr: string): string {
 
     // Initialize language on page load
     document.addEventListener('DOMContentLoaded', () => {
+      // Get language from localStorage if available
+      if (typeof localStorage !== 'undefined') {
+        const savedLang = localStorage.getItem('cv-lang');
+        if (savedLang) {
+          currentLang = savedLang;
+        }
+      }
+      
       updateLanguage(currentLang);
 
       // Add click handlers to language buttons
