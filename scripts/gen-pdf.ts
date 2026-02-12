@@ -52,7 +52,8 @@ async function startServer(): Promise<() => void> {
 
 async function generatePDF() {
   let stopServer: (() => void) | null = null;
-  let browser = null;
+  let browser: Awaited<ReturnType<typeof chromium.launch>> | null = null;
+  let hasError = false;
 
   try {
     // Ensure output directory exists
@@ -88,30 +89,22 @@ async function generatePDF() {
     });
 
     console.log(`PDF generated successfully: ${OUTPUT_FILE}`);
-
-    await browser.close();
-    browser = null;
   } catch (error) {
     console.error('Error generating PDF:', error);
-    if (browser) {
-      await browser.close().catch(() => {});
-    }
-    if (stopServer) {
-      stopServer();
-    }
-    process.exit(1);
+    hasError = true;
   } finally {
     console.log('Stopping server...');
-    if (stopServer) {
-      stopServer();
-    }
     // Close browser if still open
     if (browser) {
       await browser.close().catch(() => {});
     }
+    // Stop the Astro server
+    if (stopServer) {
+      stopServer();
+    }
     // Force exit to prevent the process from hanging
     // waiting for open connections or other resources
-    process.exit(0);
+    process.exit(hasError ? 1 : 0);
   }
 }
 
