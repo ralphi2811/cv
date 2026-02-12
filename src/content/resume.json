@@ -1,82 +1,122 @@
 {
   "basics": {
     "name": "Raphaël Auberlet",
-    "label": "Software Engineer",
-    "email": "contact@example.com",
-    "phone": "+33 6 00 00 00 00",
-    "url": "https://example.com",
-    "summary": "Passionate software engineer with expertise in web development and cloud technologies.",
+    "label": "DSI / Directeur des Systèmes d'Information | Stratégie Cloud & Cybersécurité",
+    "email": "raphael@nashi.cloud",
+    "phone": "",
+    "url": "https://raphaeldev.fr",
+    "summary": "Expert IT avec 18 ans d'expérience, j'allie une vision stratégique de DSI (gouvernance, budgets, ERP) à une expertise technique de pointe en Architecture Cloud & DevOps. Spécialiste de la stack OpenSource et des infrastructures critiques, je transforme le SI en un levier de croissance sécurisé et scalable. Stack de prédilection : Linux, Rust, Python, Kubernetes, Podman.",
     "location": {
-      "city": "Paris",
+      "city": "Le Tampon",
       "countryCode": "FR",
-      "region": "Île-de-France"
+      "region": "La Réunion"
     },
     "profiles": [
       {
-        "network": "GitHub",
-        "username": "ralphi2811",
-        "url": "https://github.com/ralphi2811"
-      },
-      {
-        "network": "LinkedIn",
-        "username": "raphaelauberlet",
-        "url": "https://linkedin.com/in/raphaelauberlet"
+        "network": "Website",
+        "username": "raphaeldev",
+        "url": "https://raphaeldev.fr"
       }
     ]
   },
   "work": [
     {
-      "name": "Tech Company",
-      "position": "Senior Software Engineer",
-      "url": "https://example.com",
-      "startDate": "2020-01-01",
+      "name": "Freelance",
+      "position": "Architecte Cloud & DSI de transition",
+      "url": "",
+      "startDate": "2026-01-01",
       "endDate": "",
-      "summary": "Leading development of cloud-native applications",
+      "summary": "Conseil stratégique et ingénierie cloud",
       "highlights": [
-        "Designed and implemented microservices architecture",
-        "Mentored junior developers",
-        "Improved system performance by 40%"
+        "Projet nashi.cloud : Conception et lancement d'une infrastructure Cloud souveraine basée sur une stack 100% OpenSource",
+        "Conseil Stratégique : Accompagnement de directions générales sur la modernisation de leur infrastructure et l'intégration de l'IA",
+        "Ingénierie : Développement d'outils d'automatisation système haute performance en Rust"
       ]
-    }
-  ],
-  "education": [
-    {
-      "institution": "University of Technology",
-      "url": "https://university.example.com",
-      "area": "Computer Science",
-      "studyType": "Master",
-      "startDate": "2015-09-01",
-      "endDate": "2017-06-30",
-      "score": "Distinction",
-      "courses": []
-    }
-  ],
-  "skills": [
-    {
-      "name": "Web Development",
-      "level": "Expert",
-      "keywords": ["JavaScript", "TypeScript", "React", "Node.js"]
     },
     {
-      "name": "Cloud & DevOps",
-      "level": "Advanced",
-      "keywords": ["AWS", "Docker", "Kubernetes", "CI/CD"]
+      "name": "SICALAIT / SDPMA",
+      "position": "Responsable Système d'Information (RSI)",
+      "url": "",
+      "startDate": "2023-08-01",
+      "endDate": "2025-11-30",
+      "summary": "Management du département informatique et gestion globale du budget IT du groupe",
+      "highlights": [
+        "Pilotage Stratégique : Management du département informatique et gestion globale du budget IT du groupe",
+        "Direction de Projet ERP : Maîtrise d'ouvrage (MOA) pour la migration intégrale vers Odoo (analyse des processus, cadrage et déploiement)",
+        "Résilience : Sécurisation des infrastructures et garantie de la continuité de service (SLA 99.9%)"
+      ]
+    },
+    {
+      "name": "SDPMA",
+      "position": "Lead Développeur & Architecte Solution",
+      "url": "",
+      "startDate": "2020-05-01",
+      "endDate": "2023-08-31",
+      "summary": "Architecture et développement de solutions",
+      "highlights": []
+    }
+  ],
+  "education": [],
+  "skills": [
+    {
+      "name": "Gouvernance & Management",
+      "level": "Expert",
+      "keywords": [
+        "Stratégie SI",
+        "Élaboration de schémas directeurs",
+        "Alignement IT-Business",
+        "Gestion Budgétaire",
+        "Optimisation des coûts (OpEx/CapEx)",
+        "Pilotage de prestataires",
+        "Direction de Projets",
+        "Migration ERP (Odoo)",
+        "Conduite du changement",
+        "Méthodologies Agile",
+        "Conformité",
+        "Gouvernance des données (RGPD)",
+        "Sécurité des systèmes"
+      ]
+    },
+    {
+      "name": "Expertise Technique",
+      "level": "Expert",
+      "keywords": [
+        "Infrastructure",
+        "Linux Expert",
+        "Cloud Native",
+        "Haute Disponibilité (HA)",
+        "Virtualisation",
+        "DevOps & Automation",
+        "CI/CD",
+        "Terraform",
+        "Ansible",
+        "Podman",
+        "Docker",
+        "Kubernetes",
+        "Développement",
+        "Rust (Performance)",
+        "Python (Automation & IA)",
+        "API REST",
+        "Sécurité",
+        "Audit",
+        "Durcissement système (Hardening)",
+        "PCA/PRA"
+      ]
     }
   ],
   "languages": [
     {
-      "language": "French",
+      "language": "Français",
       "fluency": "Native speaker"
-    },
-    {
-      "language": "English",
-      "fluency": "Professional working proficiency"
     }
   ],
   "interests": [
     {
-      "name": "Open Source",
-      "keywords": ["Contributing to projects", "Building tools"]
+      "name": "OpenSource",
+      "keywords": [
+        "Stack 100% OpenSource",
+        "Infrastructure Cloud souveraine"
+      ]
     }
   ]
 }
