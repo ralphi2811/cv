@@ -73,8 +73,8 @@ export interface Project {
   description: string;
   highlights: string[];
   keywords: string[];
-  startDate: string;
-  endDate: string;
+  startDate?: string;
+  endDate?: string;
   url?: string;
   roles?: string[];
 }

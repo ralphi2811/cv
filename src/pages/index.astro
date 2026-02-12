@@ -203,7 +203,7 @@ function formatDate(dateStr: string): string {
                   </div>
                   {project.startDate && (
                     <span class="text-sm text-gray-500 whitespace-nowrap">
-                      {formatDate(project.startDate)} - {formatDate(project.endDate)}
+                      {formatDate(project.startDate)} - {project.endDate ? formatDate(project.endDate) : 'Present'}
                     </span>
                   )}
                 </div>
