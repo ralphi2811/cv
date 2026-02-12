@@ -1,0 +1,82 @@
+{
+  "basics": {
+    "name": "Raphaël Auberlet",
+    "label": "Software Engineer",
+    "email": "contact@example.com",
+    "phone": "+33 6 00 00 00 00",
+    "url": "https://example.com",
+    "summary": "Passionate software engineer with expertise in web development and cloud technologies.",
+    "location": {
+      "city": "Paris",
+      "countryCode": "FR",
+      "region": "Île-de-France"
+    },
+    "profiles": [
+      {
+        "network": "GitHub",
+        "username": "ralphi2811",
+        "url": "https://github.com/ralphi2811"
+      },
+      {
+        "network": "LinkedIn",
+        "username": "raphaelauberlet",
+        "url": "https://linkedin.com/in/raphaelauberlet"
+      }
+    ]
+  },
+  "work": [
+    {
+      "name": "Tech Company",
+      "position": "Senior Software Engineer",
+      "url": "https://example.com",
+      "startDate": "2020-01-01",
+      "endDate": "",
+      "summary": "Leading development of cloud-native applications",
+      "highlights": [
+        "Designed and implemented microservices architecture",
+        "Mentored junior developers",
+        "Improved system performance by 40%"
+      ]
+    }
+  ],
+  "education": [
+    {
+      "institution": "University of Technology",
+      "url": "https://university.example.com",
+      "area": "Computer Science",
+      "studyType": "Master",
+      "startDate": "2015-09-01",
+      "endDate": "2017-06-30",
+      "score": "Distinction",
+      "courses": []
+    }
+  ],
+  "skills": [
+    {
+      "name": "Web Development",
+      "level": "Expert",
+      "keywords": ["JavaScript", "TypeScript", "React", "Node.js"]
+    },
+    {
+      "name": "Cloud & DevOps",
+      "level": "Advanced",
+      "keywords": ["AWS", "Docker", "Kubernetes", "CI/CD"]
+    }
+  ],
+  "languages": [
+    {
+      "language": "French",
+      "fluency": "Native speaker"
+    },
+    {
+      "language": "English",
+      "fluency": "Professional working proficiency"
+    }
+  ],
+  "interests": [
+    {
+      "name": "Open Source",
+      "keywords": ["Contributing to projects", "Building tools"]
+    }
+  ]
+}

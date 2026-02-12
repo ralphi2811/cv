@@ -1,0 +1,27 @@
+{
+  "name": "cv",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Curriculum Vitae Raphaël Auberlet statique HTML",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "gen-pdf": "tsx scripts/gen-pdf.ts"
+  },
+  "dependencies": {
+    "@astrojs/tailwind": "^5.1.2",
+    "astro": "^5.15.5",
+    "tailwindcss": "^3.4.17"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.5",
+    "@playwright/test": "^1.49.1",
+    "@types/node": "^22.10.5",
+    "playwright": "^1.49.1",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.3"
+  }
+}
