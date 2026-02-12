@@ -3,19 +3,24 @@
     "name": "Raphaël Auberlet",
     "label": "DSI / Directeur des Systèmes d'Information | Stratégie Cloud & Cybersécurité",
     "email": "raphael@nashi.cloud",
-    "phone": "",
+    "phone": "06 93 39 58 98",
     "url": "https://raphaeldev.fr",
-    "summary": "Expert IT avec 18 ans d'expérience, j'allie une vision stratégique de DSI (gouvernance, budgets, ERP) à une expertise technique de pointe en Architecture Cloud & DevOps. Spécialiste de la stack OpenSource et des infrastructures critiques, je transforme le SI en un levier de croissance sécurisé et scalable. Stack de prédilection : Linux, Rust, Python, Kubernetes, Podman.",
+    "summary": "Expert IT avec 18 ans d'expérience, j'allie une vision stratégique de **DSI** (gouvernance, budgets, ERP) à une expertise technique de pointe en **Architecture Cloud & DevOps**. Spécialiste de la stack **OpenSource** et des infrastructures critiques, je transforme le SI en un levier de croissance sécurisé, souverain et hautement performant.",
     "location": {
       "city": "Le Tampon",
       "countryCode": "FR",
-      "region": "La Réunion"
+      "region": "La Réunion (Mobilité : Europe / International)"
     },
     "profiles": [
       {
         "network": "Website",
         "username": "raphaeldev",
         "url": "https://raphaeldev.fr"
+      },
+      {
+        "network": "Website",
+        "username": "nashi.cloud",
+        "url": "https://nashi.cloud"
       }
     ]
   },
@@ -28,9 +33,9 @@
       "endDate": "",
       "summary": "Conseil stratégique et ingénierie cloud",
       "highlights": [
-        "Projet nashi.cloud : Conception et lancement d'une infrastructure Cloud souveraine basée sur une stack 100% OpenSource",
-        "Conseil Stratégique : Accompagnement de directions générales sur la modernisation de leur infrastructure et l'intégration de l'IA",
-        "Ingénierie : Développement d'outils d'automatisation système haute performance en Rust"
+        "Expertise Stratégique : Accompagnement de directions générales sur la modernisation d'infrastructure et l'intégration de solutions IA",
+        "Ingénierie de pointe : Développement d'outils d'automatisation système haute performance en Rust",
+        "Recherche & Développement : Veille active sur la souveraineté numérique et les architectures Cloud Native"
       ]
     },
     {
@@ -39,11 +44,11 @@
       "url": "",
       "startDate": "2023-08-01",
       "endDate": "2025-11-30",
-      "summary": "Management du département informatique et gestion globale du budget IT du groupe",
+      "summary": "Management du département informatique et arbitrage des investissements technologiques",
       "highlights": [
-        "Pilotage Stratégique : Management du département informatique et gestion globale du budget IT du groupe",
-        "Direction de Projet ERP : Maîtrise d'ouvrage (MOA) pour la migration intégrale vers Odoo (analyse des processus, cadrage et déploiement)",
-        "Résilience : Sécurisation des infrastructures et garantie de la continuité de service (SLA 99.9%)"
+        "Pilotage SI : Management du département informatique et arbitrage des investissements technologiques",
+        "Direction de Projet ERP : Maîtrise d'ouvrage (MOA) pour la migration intégrale vers Odoo (analyse, refonte processus et déploiement)",
+        "Opérations : Garantie de la sécurité et de la continuité de service pour l'ensemble des filiales du groupe"
       ]
     },
     {
@@ -53,10 +58,34 @@
       "startDate": "2020-05-01",
       "endDate": "2023-08-31",
       "summary": "Architecture et développement de solutions",
-      "highlights": []
+      "highlights": [
+        "Architecture Core Business : Conception du système de caisse (POS) et du moteur de fidélité centralisé",
+        "Omnicanalité : Interconnexion temps réel des stocks et flux e-commerce (Magasin Vert, Terranimo)",
+        "Optimisation Logistique : Développement d'applications mobiles métiers pour la gestion d'entrepôt"
+      ]
+    },
+    {
+      "name": "Indépendant",
+      "position": "Expert IT & Consultant Fullstack",
+      "url": "",
+      "startDate": "2007-01-01",
+      "endDate": "2020-05-01",
+      "summary": "Expertise Linux et développement d'applications complexes",
+      "highlights": [
+        "Expertise Linux : Administration de serveurs critiques et déploiement d'architectures web haute disponibilité",
+        "Solutions métier : Conception d'applications complexes sur mesure pour une clientèle internationale"
+      ]
     }
   ],
-  "education": [],
+  "education": [
+    {
+      "institution": "Expertise Informatique & SI",
+      "area": "Informatique & Systèmes d'Information",
+      "studyType": "Cursus supérieur",
+      "startDate": "2007-01-01",
+      "endDate": "2020-01-01"
+    }
+  ],
   "skills": [
     {
       "name": "Gouvernance & Management",
@@ -70,11 +99,11 @@
         "Pilotage de prestataires",
         "Direction de Projets",
         "Migration ERP (Odoo)",
-        "Conduite du changement",
+        "Gestion du changement",
         "Méthodologies Agile",
-        "Conformité",
+        "Conformité & Risques",
         "Gouvernance des données (RGPD)",
-        "Sécurité des systèmes"
+        "Résilience des systèmes"
       ]
     },
     {
@@ -85,7 +114,7 @@
         "Linux Expert",
         "Cloud Native",
         "Haute Disponibilité (HA)",
-        "Virtualisation",
+        "Virtualisation KVM",
         "DevOps & Automation",
         "CI/CD",
         "Terraform",
@@ -93,10 +122,11 @@
         "Podman",
         "Docker",
         "Kubernetes",
-        "Développement",
+        "Développement & IA",
         "Rust (Performance)",
         "Python (Automation & IA)",
         "API REST",
+        "PostgreSQL",
         "Sécurité",
         "Audit",
         "Durcissement système (Hardening)",
@@ -107,7 +137,11 @@
   "languages": [
     {
       "language": "Français",
-      "fluency": "Native speaker"
+      "fluency": "Natif"
+    },
+    {
+      "language": "Anglais",
+      "fluency": "Technique & Opérationnel"
     }
   ],
   "interests": [
@@ -124,9 +158,9 @@
       "name": "nashi.cloud",
       "description": "Infrastructure Cloud Souveraine",
       "highlights": [
-        "Objectif : Création d'une alternative Cloud sécurisée et performante basée sur une stack 100% maîtrisée",
-        "Réalisation technique : Déploiement d'une architecture résiliente sous Linux/KVM, orchestrée via des outils d'automatisation développés sur mesure en Rust",
-        "Valeur ajoutée : Maîtrise totale de la chaîne de confiance (Security by Design) et optimisation extrême des ressources hardware pour un coût OpEx minimal"
+        "Conception d'une alternative Cloud sécurisée basée sur une stack 100% OpenSource",
+        "Développement d'une couche d'orchestration optimisée en Rust pour minimiser l'empreinte hardware",
+        "Focus sur la Security by Design et la maîtrise totale de la chaîne de confiance"
       ],
       "keywords": [
         "Cloud Souverain",
@@ -138,26 +172,8 @@
       "startDate": "2025-01-01",
       "endDate": "",
       "roles": [
-        "Architecte",
-        "Fondateur"
-      ]
-    },
-    {
-      "name": "Contribution & Veille Technologique",
-      "description": "Expertise Open Source et développement d'outils système",
-      "highlights": [
-        "Stack Logicielle : Expertise avancée sur l'écosystème Cloud Native (CNCF), la conteneurisation (Podman/Kubernetes) et la sécurité des environnements Linux",
-        "Audit & Performance : Développement d'utilitaires système en Rust pour le monitoring de performance et l'analyse de flux réseau en temps réel"
-      ],
-      "keywords": [
-        "CNCF",
-        "Cloud Native",
-        "Podman",
-        "Kubernetes",
-        "Rust",
-        "Monitoring",
-        "Performance",
-        "Sécurité Linux"
+        "Fondateur",
+        "Architecte"
       ]
     }
   ]
