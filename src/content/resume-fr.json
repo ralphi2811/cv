@@ -4,8 +4,8 @@
     "label": "DSI / CTO | Stratégie Cloud & Cybersécurité",
     "email": "raphael@nashi.cloud",
     "phone": "06 93 39 58 98",
-    "url": "https://nashi.cloud",
-    "summary": "Expert IT avec 18 ans d'expérience, j'allie une vision stratégique de **DSI** (gouvernance, budgets, ERP) à une expertise technique de pointe en **Architecture Cloud & DevOps**. Spécialiste de la stack **OpenSource** (Linux, Rust, KVM) et des infrastructures critiques, je transforme le SI en un levier de croissance sécurisé, souverain et hautement performant.",
+    "url": "https://raphaeldev.fr",
+    "summary": "Expert IT avec 18 ans d'expérience, j'allie une vision stratégique de DSI (gouvernance, budgets, ERP) à une expertise technique de pointe en Architecture Cloud & DevOps. Spécialiste de la stack OpenSource (Linux, Rust, KVM) et des infrastructures critiques, je transforme le SI en un levier de croissance sécurisé, souverain et hautement performant.",
     "location": {
       "city": "Le Tampon",
       "countryCode": "FR",
@@ -21,6 +21,11 @@
         "network": "GitHub",
         "username": "ralphi2811",
         "url": "https://github.com/ralphi2811"
+      },
+      {
+        "network": "Website",
+        "username": "raphaeldev",
+        "url": "https://raphaeldev.fr"
       },
       {
         "network": "Website",
